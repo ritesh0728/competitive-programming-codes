@@ -1,0 +1,35 @@
+class Solution(object):
+    def findAndReplacePattern(self, words, pattern):
+        """
+        :type words: List[str]
+        :type pattern: str
+        :rtype: List[str]"""
+        d=[]
+        for i in (words):
+            s=[];c=''
+            for j in (i):
+                if j not in s:
+                    s.append(j)
+                    c+=str(s.index(j))
+                else:
+                    c+=str(s.index(j))
+            d.append([i,c]) 
+        s=[];c=''
+        for j in (pattern):
+            if j not in s:
+                s.append(j)
+                c+=str(s.index(j))
+            else:
+                c+=str(s.index(j)) 
+        
+        ans=[]        
+        for i in d:
+            if i[1]==c:
+                ans.append(i[0])
+        return ans
+                    
+                
+        
+        ______________________________________________________
+        input:words = ["abc","deq","mee","aqq","dkd","ccc"], pattern = "abb"
+        Output: ["mee","aqq"]
